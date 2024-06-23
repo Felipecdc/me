@@ -11,15 +11,15 @@ import {
 } from "../_components/ui/form";
 import { Input } from "../_components/ui/input";
 import { useForm } from "react-hook-form";
-import { Button } from "../_components/ui/button";
 import { useState } from "react";
 import { SendHorizontalIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createProject } from "./_actions/create-project";
+import SubmitButton from "./_components/submit-button";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome muito curto").max(50, "Nome muito longo"),
-  imageUrl: z.string().url("URL inválida"),
+  imageUrl: z.any(),
   status: z.string().min(2, "Status muito curto").max(10, "Status muito longo"),
   github: z.string().url("URL inválida").optional(),
   linkedin: z.string().url("URL inválida").optional(),
@@ -189,12 +189,7 @@ const CreateProject = () => {
               </FormItem>
             )}
           />
-          <Button
-            type="submit"
-            className="mt-5 bg-primary font-bold text-primary-foreground"
-          >
-            Criar Projeto
-          </Button>
+          <SubmitButton />
         </form>
       </Form>
     </div>
