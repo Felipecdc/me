@@ -19,19 +19,23 @@ import SubmitButton from "./_components/submit-button";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome muito curto").max(50, "Nome muito longo"),
-  imageUrl: z.any(),
+  imageUrl: z
+    .instanceof(File)
+    .refine((file) => file instanceof File, "Você deve selecionar uma imagem"),
   status: z.string().min(2, "Status muito curto").max(10, "Status muito longo"),
-  github: z.string().url("URL inválida").optional(),
-  linkedin: z.string().url("URL inválida").optional(),
-  deploy: z.string().url("URL inválida").optional(),
+  github: z.string().optional(),
+  linkedin: z.string().optional(),
+  deploy: z.string().optional(),
 });
 
+type ProjectFormData = z.infer<typeof formSchema>;
+
 const CreateProject = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<ProjectFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      imageUrl: "",
+      imageUrl: undefined,
       status: "",
       github: "",
       linkedin: "",
@@ -74,6 +78,34 @@ const CreateProject = () => {
   }
   // Finalloading page
 
+  const onSubmit = async (data: ProjectFormData) => {
+    try {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("imageUrl", data.imageUrl);
+      formData.append("status", data.status);
+      if (data.github !== undefined) formData.append("github", data.github);
+      if (data.linkedin !== undefined)
+        formData.append("linkedin", data.linkedin);
+      if (data.deploy !== undefined) formData.append("deploy", data.deploy);
+
+      const result = await createProject(formData);
+
+      if (result?.errors) {
+        result.errors.forEach((error) => {
+          form.setError(error.path[0] as keyof ProjectFormData, {
+            type: "manual",
+            message: error.message,
+          });
+        });
+      } else {
+        alert("Projeto criado");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center pb-8 pt-5">
       <h1 className="mb-5 text-xl font-semibold uppercase">
@@ -81,7 +113,8 @@ const CreateProject = () => {
       </h1>
       <Form {...form}>
         <form
-          action={createProject}
+          onSubmit={form.handleSubmit(onSubmit)}
+          // action={createProject}
           className="flex w-[350px] flex-col gap-5 rounded-lg bg-card p-5 md:w-[600px]"
         >
           <FormField
@@ -112,7 +145,10 @@ const CreateProject = () => {
                     className="bg-input shadow-md shadow-stone-900"
                     placeholder="Descarrega uma imagem"
                     type="file"
-                    {...field}
+                    accept="image/png"
+                    onChange={(e) =>
+                      field.onChange(e.target.files ? e.target.files[0] : null)
+                    }
                   />
                 </FormControl>
                 <FormMessage />
@@ -189,7 +225,7 @@ const CreateProject = () => {
               </FormItem>
             )}
           />
-          <SubmitButton />
+          <SubmitButton isSubmitting={form.formState.isSubmitting} />
         </form>
       </Form>
     </div>
