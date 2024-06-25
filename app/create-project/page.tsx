@@ -100,6 +100,7 @@ const CreateProject = () => {
         });
       } else {
         alert("Projeto criado");
+        form.reset();
       }
     } catch (error) {
       console.log(error);
