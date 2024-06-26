@@ -12,7 +12,7 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="flex w-full items-center justify-center px-5 py-4">
+    <div className="flex w-full items-center justify-center px-5 pt-4">
       {/* MOBILE */}
       <div className="flex h-10 w-full items-center justify-between rounded-xl bg-card px-3 sm:hidden">
         <Link href={"/"} className="font-roboto font-bold">
