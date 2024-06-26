@@ -12,9 +12,9 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="flex w-full items-center justify-center py-4">
+    <div className="flex w-full items-center justify-center px-5 py-4">
       {/* MOBILE */}
-      <div className="flex h-10 w-[90%] items-center justify-between rounded-xl bg-card px-3 sm:hidden">
+      <div className="flex h-10 w-full items-center justify-between rounded-xl bg-card px-3 sm:hidden">
         <Link href={"/"} className="font-roboto font-bold">
           Felipe Castro
         </Link>
@@ -146,7 +146,7 @@ const Header = () => {
         </Sheet>
       </div>
       {/* DESKTOP */}
-      <div className="hidden h-12 w-[90%] max-w-[1200px] items-center justify-between rounded-xl bg-card px-4 sm:flex">
+      <div className="hidden h-12 w-full max-w-[1200px] items-center justify-between rounded-xl bg-card px-4 sm:flex">
         <div className="flex gap-3">
           <Link
             href={"/"}
