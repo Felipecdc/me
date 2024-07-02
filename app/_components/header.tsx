@@ -12,9 +12,9 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="flex w-full items-center justify-center px-5 pt-4">
+    <div className="fixed flex w-full items-center justify-center bg-gradient-to-b from-background to-transparent px-3 pt-4">
       {/* MOBILE */}
-      <div className="flex h-10 w-full items-center justify-between rounded-xl bg-card px-3 sm:hidden">
+      <div className="flex h-10 w-full items-center justify-between rounded-xl bg-card px-3 shadow-md shadow-zinc-900 sm:hidden">
         <Link href={"/"} className="font-roboto font-bold">
           Felipe Castro
         </Link>
@@ -26,7 +26,9 @@ const Header = () => {
           </SheetTrigger>
           <SheetContent className="border-stone-800">
             <SheetHeader className="items-start">
-              <SheetTitle className="font-roboto">Bem vindo!</SheetTitle>
+              <SheetTitle className="font-roboto text-3xl">
+                Bem vindo!
+              </SheetTitle>
             </SheetHeader>
             <div className="flex h-full w-full flex-col justify-between pb-10 pt-5">
               <div className="flex w-full flex-col gap-5">
@@ -146,7 +148,7 @@ const Header = () => {
         </Sheet>
       </div>
       {/* DESKTOP */}
-      <div className="hidden h-12 w-full max-w-[1200px] items-center justify-between rounded-xl bg-card px-4 sm:flex">
+      <div className="hidden h-12 w-full max-w-[1200px] items-center justify-between rounded-xl bg-card px-4 shadow-md shadow-zinc-900 sm:flex">
         <div className="flex gap-3">
           <Link
             href={"/"}
