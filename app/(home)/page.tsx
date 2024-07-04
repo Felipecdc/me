@@ -10,14 +10,19 @@ export default function Home() {
     <>
       <Header />
       <div className="flex items-center justify-center px-5 pt-20">
-        <div className="flex w-full max-w-[1100px] flex-col items-start justify-center">
-          <h1>E ai, eu sou Felipe Castro - Desenvolvedor Full-Stack</h1>
-          <span>Unificando o design e o codigo em um so lugar!</span>
-          <div className="flex">
-            <div className="h-[15px] w-[15px] rounded-full bg-green-700">
-              <div className="h-[8px] w-[8px] rounded-full bg-green-500"></div>
+        <div className="mb-3 mt-8 flex w-full max-w-[1100px] flex-col items-start justify-center gap-1">
+          <h1 className="text-wrap text-2xl font-bold md:text-3xl">
+            E ai, eu sou Felipe Castro - Desenvolvedor Full-Stack
+          </h1>
+          <span className="text-sm text-[#a8a8a8] md:text-base">
+            Unificando o design e o código em um só lugar!
+          </span>
+          <div className="mt-4 flex items-center">
+            <div className="relative mr-2 h-[12px] w-[12px]">
+              <div className="absolute inset-0 animate-pulse rounded-full bg-green-700"></div>
+              <div className="absolute left-1/2 top-1/2 h-[8px] w-[8px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-green-500"></div>
             </div>
-            <span>Em atividade</span>
+            <span className="text-sm text-[#c0c0c0]">Em atividade</span>
           </div>
         </div>
       </div>
