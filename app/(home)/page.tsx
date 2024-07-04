@@ -29,7 +29,7 @@ export default function Home() {
       <div className="flex items-center justify-center px-5 pt-6">
         <CustomCard>
           <div className="flex w-full items-center justify-center">
-            <div className="relative hidden h-[240px] min-w-[280px] bg-secondary md:flex">
+            <div className="relative hidden h-[240px] min-w-[280px] bg-secondary shadow-md shadow-[#242424] md:flex">
               <Image
                 src="/me.png"
                 alt="Felipe Castro"
@@ -50,7 +50,7 @@ export default function Home() {
         <CustomCard>
           <div className="flex w-full flex-col md:flex-row md:justify-start">
             <div className="hidden h-auto items-center justify-center md:flex">
-              <div className="bg-secondaryflex relative h-[240px] min-w-[280px] max-w-[280px]">
+              <div className="relative flex h-[240px] min-w-[280px] max-w-[280px] bg-secondary shadow-md shadow-[#242424]">
                 <Image
                   src="/notebook.png"
                   alt="Felipe Castro"
@@ -72,7 +72,9 @@ export default function Home() {
                   Explore os projetos para ver mais detalhes!
                 </p>
               </div>
-              <Button className="mt-5 h-8 lg:mt-0 lg:w-32">Ver Projetos</Button>
+              <Button className="mt-5 h-8 shadow-md shadow-[#242424] lg:mt-0 lg:w-32">
+                Ver Projetos
+              </Button>
             </div>
           </div>
         </CustomCard>

@@ -11,7 +11,9 @@ const Footer = () => {
             Se você quiser elevar o nivel e o valor da sua marca ou empresa,
             sinta-se à vontade para me enviar uma mensagem.
           </p>
-          <Button className="mt-5 h-8 rounded-2xl md:w-32">Fale comigo</Button>
+          <Button className="mt-5 h-8 rounded-2xl shadow-md shadow-[#242424] md:w-32">
+            Fale comigo
+          </Button>
         </div>
       </CustomCard>
       <CustomCard>

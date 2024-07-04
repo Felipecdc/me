@@ -15,7 +15,7 @@ const ActionCard = ({ title, count, press, link }: ActionCardProps) => {
   return (
     <Button
       asChild
-      className="flex h-[140px] w-full flex-col items-center justify-center gap-4 rounded-md bg-secondary md:h-full lg:h-[170px]"
+      className="flex h-[140px] w-full flex-col items-center justify-center gap-4 rounded-md bg-secondary shadow-md shadow-[#242424] md:h-full lg:h-[170px]"
     >
       <Link href={link}>
         {title && <h1 className="text-xl text-stone-400">{title}</h1>}
