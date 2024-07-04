@@ -12,7 +12,7 @@ import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="fixed flex w-full items-center justify-center bg-gradient-to-b from-background to-transparent px-3 pt-4">
+    <div className="fixed z-50 flex w-full items-center justify-center bg-gradient-to-b from-background to-transparent px-3 pt-4">
       {/* MOBILE */}
       <div className="flex h-10 w-full items-center justify-between rounded-xl bg-card px-3 shadow-md shadow-zinc-900 sm:hidden">
         <Link href={"/"} className="font-roboto font-bold">
