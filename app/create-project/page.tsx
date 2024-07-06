@@ -226,7 +226,10 @@ const CreateProject = () => {
               </FormItem>
             )}
           />
-          <SubmitButton isSubmitting={form.formState.isSubmitting} />
+          <SubmitButton
+            isSubmitting={form.formState.isSubmitting}
+            text="Criar Projeto"
+          />
         </form>
       </Form>
     </div>
