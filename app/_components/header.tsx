@@ -50,33 +50,33 @@ const Header = () => {
                   className="m-0 items-center justify-start bg-muted p-2"
                 >
                   <Link
-                    href="/"
+                    href="/projects"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
                   >
                     Projetos
                   </Link>
-                </Button>{" "}
+                </Button>
                 <Button
                   asChild
                   className="m-0 items-center justify-start bg-muted p-2"
                 >
                   <Link
-                    href="/"
+                    href="/components"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
                   >
                     Componentes
                   </Link>
-                </Button>{" "}
+                </Button>
                 <Button
                   asChild
                   className="m-0 items-center justify-start bg-muted p-2"
                 >
                   <Link
-                    href="/"
+                    href="/design"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
@@ -148,29 +148,29 @@ const Header = () => {
         </Sheet>
       </div>
       {/* DESKTOP */}
-      <div className="hidden h-12 w-full max-w-[1200px] items-center justify-between rounded-xl bg-card px-4 shadow-md shadow-zinc-900 sm:flex">
+      <div className="hidden h-12 w-full max-w-[1300px] items-center justify-between rounded-xl bg-card px-4 shadow-md shadow-zinc-900 sm:flex">
         <div className="flex gap-3">
           <Link
             href={"/"}
-            className="font-roboto text-lg font-medium hover:text-white"
+            className="font-roboto text-base font-semibold hover:text-white"
           >
             Inicio
           </Link>
           <Link
-            href={"/project"}
-            className="font-roboto text-lg font-medium hover:text-white"
+            href={"/projects"}
+            className="font-roboto text-base font-semibold hover:text-white"
           >
             Projetos
           </Link>
           <Link
             href={"/components"}
-            className="font-roboto text-lg font-medium hover:text-white"
+            className="font-roboto text-base font-semibold hover:text-white"
           >
             Componentes
           </Link>
           <Link
             href={"/design-figma"}
-            className="font-roboto text-lg font-medium hover:text-white"
+            className="font-roboto text-base font-semibold hover:text-white"
           >
             Design
           </Link>
