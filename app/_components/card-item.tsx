@@ -7,8 +7,6 @@ import { MdOpenInNew } from "react-icons/md";
 import Image from "next/image";
 
 const CardItem = ({ item }: { item: ProjectProps }) => {
-  console.log(item);
-
   return (
     <div className="flex flex-col items-center justify-start rounded-lg bg-[#FEFEFE]">
       <div className="flex min-h-10 w-full items-center justify-between gap-2 rounded-t-lg border-b border-[#dddddd] bg-[#ececec] px-2 py-1">
