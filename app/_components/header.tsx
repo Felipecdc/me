@@ -169,7 +169,7 @@ const Header = () => {
             Componentes
           </Link>
           <Link
-            href={"/design-figma"}
+            href={"/design"}
             className="font-roboto text-base font-semibold hover:text-white"
           >
             Design
