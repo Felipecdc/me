@@ -38,8 +38,6 @@ const Header = () => {
                 >
                   <Link
                     href="/"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
                   >
                     Inicio
@@ -51,8 +49,6 @@ const Header = () => {
                 >
                   <Link
                     href="/projects"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
                   >
                     Projetos
@@ -64,8 +60,6 @@ const Header = () => {
                 >
                   <Link
                     href="/components"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
                   >
                     Componentes
@@ -77,8 +71,6 @@ const Header = () => {
                 >
                   <Link
                     href="/design"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="font-roboto m-0 p-0 text-secondary-foreground"
                   >
                     Design
