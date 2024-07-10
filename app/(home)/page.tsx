@@ -42,8 +42,8 @@ export default function Home() {
               />
             </div>
             <div className="flex h-full w-full flex-col gap-3 md:pl-3 lg:flex-row lg:gap-8 lg:pl-8 lg:pr-4">
-              <ActionCard title="Componentes" count={16} link="/components" />
-              <ActionCard title="Design Figma" count={5} link="/design" />
+              <ActionCard title="Componentes" count={1} link="/components" />
+              <ActionCard title="Design Figma" count={1} link="/design" />
               <ActionCard press="Ver sobre" link="/about" />
             </div>
           </div>
