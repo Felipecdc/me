@@ -30,3 +30,18 @@ model Link {
   projectId String
   project   Project @relation(fields: [projectId], references: [id])
 }
+
+model Components {
+  id          String  @id @default(uuid())
+  name        String
+  imageUrl    String
+  code        String
+  description String?
+}
+
+model Design {
+  id       String  @id @default(uuid())
+  name     String
+  imageUrl String
+  link     String?
+}
