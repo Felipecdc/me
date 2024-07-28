@@ -26,9 +26,7 @@ const Design = async () => {
   let response: ProjectProps[] = [];
 
   try {
-    response = await db.project.findMany({
-      include: { links: true },
-    });
+    response = await db.components.findMany({});
   } catch (error) {
     console.error("Failed to fetch projects:", error);
   }
@@ -79,11 +77,12 @@ const Design = async () => {
       </div>
       <div className="flex items-center justify-center px-5 pt-6">
         <CustomCard>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+          {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
             {response.map((item) => (
               <CardItem key={item.id} item={item} />
             ))}
-          </div>
+          </div> */}
+          Aqui
         </CustomCard>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
