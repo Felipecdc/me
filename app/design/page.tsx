@@ -2,8 +2,36 @@ import Image from "next/image";
 import Footer from "../_components/footer";
 import Header from "../_components/header";
 import CustomCard from "../_components/custom-card";
+import { db } from "../_lib/prisma";
+import CardItem from "../_components/card-item";
 
-const Design = () => {
+export interface ProjectProps {
+  id: string;
+  name: string;
+  imageUrl: string;
+  isVisible: boolean;
+  status: string;
+  links: LinksProps[];
+}
+
+interface LinksProps {
+  id: string;
+  github: string | null;
+  linkedin: string | null;
+  deploy: string | null;
+  projectId: string;
+}
+
+const Design = async () => {
+  let response: ProjectProps[] = [];
+
+  try {
+    response = await db.project.findMany({
+      include: { links: true },
+    });
+  } catch (error) {
+    console.error("Failed to fetch projects:", error);
+  }
   return (
     <>
       <Header />
@@ -35,8 +63,8 @@ const Design = () => {
                 </a>
               </h3>
             </div>
-            {/* <div className="hide-on-small flex h-auto w-[550px] items-center justify-end pr-20">
-              <div className="relative h-[310px] w-[300px]">
+            <div className="hide-on-small flex h-auto w-[550px] items-center justify-end pr-20">
+              <div className="relative h-[310px] w-[350px]">
                 <Image
                   src="/laptop.png"
                   alt="Felipe Castro"
@@ -45,15 +73,19 @@ const Design = () => {
                   fill
                 />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
       <div className="flex items-center justify-center px-5 pt-6">
         <CustomCard>
-          <h1>Em construção!</h1>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            {response.map((item) => (
+              <CardItem key={item.id} item={item} />
+            ))}
+          </div>
         </CustomCard>
-      </div>{" "}
+      </div>
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
         <Footer />
       </div>
