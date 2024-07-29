@@ -32,14 +32,14 @@ model Link {
 }
 
 model Components {
-  id              String  @id @default(uuid())
-  name            String
-  imageUrl        String
-  codeDependecies String?
-  codeMain        String?
-  codeImport      String
-  code            String
-  description     String?
+  id               String  @id @default(uuid())
+  name             String
+  imageUrl         String
+  codeDependencies String?
+  codeMain         String?
+  codeImport       String
+  code             String
+  description      String?
 }
 
 model Design {
