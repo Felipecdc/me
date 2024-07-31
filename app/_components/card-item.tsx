@@ -1,19 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import { ProjectProps } from "../projects/page";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdOpenInNew } from "react-icons/md";
 import Image from "next/image";
+import { ProjectProps } from "../projects/page";
+import { ComponentsProps } from "../components/page";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import SideBarComponents from "./sideBar-Components";
 
-const CardItem = ({ item }: { item: ProjectProps }) => {
+type CardItemProps = ComponentsProps | ProjectProps;
+
+const CardItem = ({ item }: { item: CardItemProps }) => {
+  const isProjectProps = (props: CardItemProps): props is ProjectProps => {
+    return (props as ProjectProps).links !== undefined;
+  };
+
+  const isComponentsProps = (
+    props: CardItemProps,
+  ): props is ComponentsProps => {
+    return (props as ComponentsProps) !== undefined;
+  };
+
   return (
     <div className="flex flex-col items-center justify-start rounded-lg bg-[#FEFEFE]">
       <div className="flex min-h-10 w-full items-center justify-between gap-2 rounded-t-lg border-b border-[#dddddd] bg-[#ececec] px-2 py-1">
         <h1 className="font-cairo line-clamp-1 text-wrap font-bold text-slate-900">
           {item.name}
         </h1>
-        {item.links.length > 0 &&
+        {isComponentsProps(item) && item.code && (
+          <Sheet>
+            <SheetTrigger asChild>
+              <button className="flex items-center gap-1 text-[#888888] hover:text-[#424242]">
+                <MdOpenInNew />
+              </button>
+            </SheetTrigger>
+            <SheetContent>
+              <SideBarComponents {...item} />
+            </SheetContent>
+          </Sheet>
+        )}
+        {isProjectProps(item) &&
+          item.links &&
+          item.links.length > 0 &&
           item.links.map((link) => (
             <div key={link.id} className="flex gap-2">
               {link.github && (
