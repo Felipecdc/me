@@ -19,7 +19,7 @@ const formSchema = z.object({
   imageUrl: z
     .instanceof(File)
     .refine((file) => file instanceof File, "Você deve selecionar uma imagem"),
-  codeDependencies: z.string().min(8, "Codigo muito curto"),
+  codeDependencies: z.string().optional(),
   codeMain: z.string().optional(),
   codeImport: z.string().min(8, "Codigo muito curto"),
   code: z.string().min(8, "Codigo muito curto"),
