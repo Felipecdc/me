@@ -78,9 +78,11 @@ const Components = async () => {
       </div>
       <div className="flex items-center justify-center px-5 pt-6">
         <CustomCard>
-          {response.map((item) => (
-            <CardItem key={item.id} item={item} />
-          ))}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            {response.map((item) => (
+              <CardItem key={item.id} item={item} />
+            ))}
+          </div>
         </CustomCard>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
