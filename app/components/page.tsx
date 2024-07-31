@@ -2,8 +2,29 @@ import Image from "next/image";
 import Footer from "../_components/footer";
 import Header from "../_components/header";
 import CustomCard from "../_components/custom-card";
+import CardItem from "../_components/card-item";
+import { db } from "../_lib/prisma";
 
-const Components = () => {
+export interface ComponentsProps {
+  id: string;
+  name: string;
+  imageUrl: string;
+  codeDependencies?: string | null;
+  codeMain?: string | null;
+  codeImport: string;
+  code: string;
+  description?: string | null;
+}
+
+const Components = async () => {
+  let response: ComponentsProps[] = [];
+
+  try {
+    response = await db.components.findMany({});
+  } catch (error) {
+    console.error("Failed to fetch components:", error);
+  }
+
   return (
     <>
       <Header />
@@ -35,6 +56,9 @@ const Components = () => {
                   <li className="relative pl-6 before:absolute before:left-0 before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:bg-[#bbbbbb]">
                     Javascript
                   </li>
+                  <li className="relative pl-6 before:absolute before:left-0 before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-full before:bg-[#bbbbbb]">
+                    Tailwindcss
+                  </li>
                 </ol>
               </div>
             </div>
@@ -54,7 +78,9 @@ const Components = () => {
       </div>
       <div className="flex items-center justify-center px-5 pt-6">
         <CustomCard>
-          <h1>Em construção!</h1>
+          {response.map((item) => (
+            <CardItem key={item.id} item={item} />
+          ))}
         </CustomCard>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
