@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SubmitButton from "./submit-button";
 import { createComponent } from "../_actions/create-component";
+import { Textarea } from "@/app/_components/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(2, "Nome muito curto").max(50, "Nome muito longo"),
@@ -126,7 +127,7 @@ const ComponentsForm = () => {
               <FormItem className="space-y-1">
                 <FormLabel className="text-lg font-semibold">Import</FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     className="bg-input shadow-md shadow-stone-900"
                     placeholder="Código de Importação"
                     {...field}
@@ -143,7 +144,7 @@ const ComponentsForm = () => {
               <FormItem className="space-y-1">
                 <FormLabel className="text-lg font-semibold">Code</FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     className="bg-input shadow-md shadow-stone-900"
                     placeholder="Código principal"
                     {...field}
@@ -162,7 +163,7 @@ const ComponentsForm = () => {
                   Dependencies
                 </FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     className="bg-input shadow-md shadow-stone-900"
                     placeholder="Dependências"
                     {...field}
@@ -179,7 +180,7 @@ const ComponentsForm = () => {
               <FormItem className="space-y-1">
                 <FormLabel className="text-lg font-semibold">Main</FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     className="bg-input shadow-md shadow-stone-900"
                     placeholder="Código arquivo main"
                     {...field}
@@ -198,7 +199,7 @@ const ComponentsForm = () => {
                   Description
                 </FormLabel>
                 <FormControl>
-                  <Input
+                  <Textarea
                     className="bg-input shadow-md shadow-stone-900"
                     placeholder="Descrição"
                     {...field}
