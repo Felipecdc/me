@@ -35,7 +35,7 @@ const CardItem = ({ item }: { item: CardItemProps }) => {
                 <MdOpenInNew />
               </button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="h-full overflow-y-auto border-gray-900">
               <SideBarComponents {...item} />
             </SheetContent>
           </Sheet>
