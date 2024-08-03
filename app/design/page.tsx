@@ -50,7 +50,7 @@ const Design = async () => {
         </div>
       </div>
       <div className="flex items-center justify-center px-5 pt-6">
-        <CustomCard>Aqui</CustomCard>
+        <CustomCard>Em construção!</CustomCard>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
         <Footer />
