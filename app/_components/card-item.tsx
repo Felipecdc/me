@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdOpenInNew } from "react-icons/md";
+import { GoSidebarExpand } from "react-icons/go";
 import Image from "next/image";
 import { ProjectProps } from "../projects/page";
 import { ComponentsProps } from "../components/page";
@@ -31,8 +32,8 @@ const CardItem = ({ item }: { item: CardItemProps }) => {
         {isComponentsProps(item) && item.code && (
           <Sheet>
             <SheetTrigger asChild>
-              <button className="flex items-center gap-1 text-[#888888] hover:text-[#424242]">
-                <MdOpenInNew />
+              <button className="flex items-center gap-1 text-[#888888] hover:text-[#1f1f1f]">
+                <GoSidebarExpand />
               </button>
             </SheetTrigger>
             <SheetContent className="h-full overflow-y-auto border-gray-900">
