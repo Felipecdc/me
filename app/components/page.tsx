@@ -4,6 +4,7 @@ import Header from "../_components/header";
 import CustomCard from "../_components/custom-card";
 import CardItem from "../_components/card-item";
 import { db } from "../_lib/prisma";
+import Modal, { showModal } from "../_components/modal";
 
 export interface ComponentsProps {
   id: string;
@@ -42,9 +43,14 @@ const Components = async () => {
               </p>
               <p className="font-cairo text-base">
                 Aqui vocé encontrará códigos que poderão ser utilizados em
-                aplicações web e mobille, tanto para front end quanto para back
-                end.
+                aplicações web e mobille.
               </p>
+              <button
+                onClick={showModal}
+                className="text-left text-sm text-purple-400"
+              >
+                Informações importantes!
+              </button>
               <h3 className="font-cairo text-xl font-bold">
                 Quais tecnologias serão abordadas?
               </h3>
@@ -88,6 +94,8 @@ const Components = async () => {
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
         <Footer />
       </div>
+      {/*Componente Modal para Infos*/}
+      <Modal />
     </>
   );
 };
