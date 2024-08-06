@@ -3,6 +3,13 @@ import Footer from "../_components/footer";
 import Header from "../_components/header";
 import CustomCard from "../_components/custom-card";
 
+export interface DesignsProps {
+  id: string;
+  name: string;
+  imageUrl: string;
+  link: string | null;
+}
+
 const Design = async () => {
   return (
     <>
