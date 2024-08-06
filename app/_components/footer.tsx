@@ -18,7 +18,13 @@ const Footer = () => {
             className="mt-5 h-8 rounded-2xl shadow-md shadow-[#242424] md:w-32"
             asChild
           >
-            <Link href={"/about"}>Fale comigo</Link>
+            <Link
+              href={"https://www.linkedin.com/in/felipe-castro-039335267/"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fale comigo
+            </Link>
           </Button>
         </div>
       </CustomCard>
