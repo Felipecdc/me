@@ -7,10 +7,11 @@ import { GoSidebarExpand } from "react-icons/go";
 import Image from "next/image";
 import { ProjectProps } from "../projects/page";
 import { ComponentsProps } from "../components/page";
+import { DesignsProps } from "../design/page";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import SideBarComponents from "./sideBar-Components";
 
-type CardItemProps = ComponentsProps | ProjectProps;
+type CardItemProps = ComponentsProps | ProjectProps | DesignsProps;
 
 const CardItem = ({ item }: { item: CardItemProps }) => {
   const isProjectProps = (props: CardItemProps): props is ProjectProps => {
@@ -21,6 +22,10 @@ const CardItem = ({ item }: { item: CardItemProps }) => {
     props: CardItemProps,
   ): props is ComponentsProps => {
     return (props as ComponentsProps) !== undefined;
+  };
+
+  const isDesignsProps = (props: DesignsProps): props is DesignsProps => {
+    return (props as DesignsProps) !== undefined;
   };
 
   return (
@@ -40,6 +45,11 @@ const CardItem = ({ item }: { item: CardItemProps }) => {
               <SideBarComponents {...item} />
             </SheetContent>
           </Sheet>
+        )}
+        {isDesignsProps(item) && (
+          <button className="flex items-center gap-1 text-[#888888] hover:text-[#1f1f1f]">
+            <GoSidebarExpand />
+          </button>
         )}
         {isProjectProps(item) &&
           item.links &&

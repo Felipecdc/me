@@ -2,15 +2,25 @@ import Image from "next/image";
 import Footer from "../_components/footer";
 import Header from "../_components/header";
 import CustomCard from "../_components/custom-card";
+import CardItem from "../_components/card-item";
+import { db } from "../_lib/prisma";
 
 export interface DesignsProps {
   id: string;
   name: string;
   imageUrl: string;
-  link: string | null;
+  link?: string | null;
 }
 
 const Design = async () => {
+  let response: DesignsProps[] = [];
+
+  try {
+    response = await db.design.findMany({});
+  } catch (error) {
+    console.error("Failed to fetch Designs:", error);
+  }
+
   return (
     <>
       <Header />
@@ -57,7 +67,13 @@ const Design = async () => {
         </div>
       </div>
       <div className="flex items-center justify-center px-5 pt-6">
-        <CustomCard>Em construção!</CustomCard>
+        <CustomCard>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            {response.map((item) => (
+              <CardItem key={item.id} item={item} />
+            ))}
+          </div>
+        </CustomCard>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 px-5 py-6">
         <Footer />
