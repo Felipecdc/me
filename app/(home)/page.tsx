@@ -5,8 +5,27 @@ import ActionCard from "../_components/action-card";
 import { Button } from "../_components/ui/button";
 import Footer from "../_components/footer";
 import Link from "next/link";
+import { ComponentsProps } from "../components/page";
+import { db } from "../_lib/prisma";
+import { DesignsProps } from "../design/page";
 
-export default function Home() {
+export default async function Home() {
+  let components: ComponentsProps[] = [];
+
+  try {
+    components = await db.components.findMany({});
+  } catch (error) {
+    console.error("Failed to fetch components:", error);
+  }
+
+  let designs: DesignsProps[] = [];
+
+  try {
+    designs = await db.design.findMany({});
+  } catch (error) {
+    console.error("Failed to fetch components:", error);
+  }
+
   return (
     <>
       <Header />
@@ -42,8 +61,16 @@ export default function Home() {
               />
             </div>
             <div className="flex h-full w-full flex-col gap-3 md:pl-3 lg:flex-row lg:gap-8 lg:pl-8 lg:pr-4">
-              <ActionCard title="Componentes" count={1} link="/components" />
-              <ActionCard title="Design Figma" count={1} link="/design" />
+              <ActionCard
+                title="Componentes"
+                count={components.length > 0 ? components.length : 1}
+                link="/components"
+              />
+              <ActionCard
+                title="Design Figma"
+                count={designs.length > 0 ? designs.length : 1}
+                link="/design"
+              />
               <ActionCard press="Ver sobre" link="/about" />
             </div>
           </div>
