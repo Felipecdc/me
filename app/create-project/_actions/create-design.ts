@@ -28,7 +28,7 @@ export const createDesign = async (form: FormData) => {
         id: v4(),
         name,
         imageUrl: "",
-        link: "",
+        link,
       },
     });
 
