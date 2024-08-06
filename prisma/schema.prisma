@@ -43,8 +43,8 @@ model Components {
 }
 
 model Design {
-  id       String  @id @default(uuid())
+  id       String @id @default(uuid())
   name     String
   imageUrl String
-  link     String?
+  link     String
 }
