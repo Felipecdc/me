@@ -9,7 +9,7 @@ export interface DesignsProps {
   id: string;
   name: string;
   imageUrl: string;
-  link?: string | null;
+  link: string;
 }
 
 const Design = async () => {

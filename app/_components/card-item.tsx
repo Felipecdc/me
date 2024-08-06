@@ -24,8 +24,8 @@ const CardItem = ({ item }: { item: CardItemProps }) => {
     return (props as ComponentsProps) !== undefined;
   };
 
-  const isDesignsProps = (props: DesignsProps): props is DesignsProps => {
-    return (props as DesignsProps) !== undefined;
+  const isDesignsProps = (props: CardItemProps): props is DesignsProps => {
+    return (props as DesignsProps).link !== undefined;
   };
 
   return (
@@ -47,9 +47,14 @@ const CardItem = ({ item }: { item: CardItemProps }) => {
           </Sheet>
         )}
         {isDesignsProps(item) && (
-          <button className="flex items-center gap-1 text-[#888888] hover:text-[#1f1f1f]">
-            <GoSidebarExpand />
-          </button>
+          <Link
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-[#888888] hover:text-[#424242]"
+          >
+            <MdOpenInNew />
+          </Link>
         )}
         {isProjectProps(item) &&
           item.links &&
