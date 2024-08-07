@@ -52,17 +52,6 @@ const Design = async () => {
                 </a>
               </h3>
             </div>
-            <div className="hide-on-small flex h-auto w-[550px] items-center justify-end pr-20">
-              <div className="relative h-[310px] w-[350px]">
-                <Image
-                  src="/laptop.png"
-                  alt="Felipe Castro"
-                  style={{ objectFit: "cover" }}
-                  className="rounded-md"
-                  fill
-                />
-              </div>
-            </div>
           </div>
         </div>
       </div>
