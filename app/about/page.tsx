@@ -21,7 +21,7 @@ const About = () => {
             </div>
             <div className="flex w-full flex-col gap-3 bg-secondary p-3 shadow-md shadow-[#242424]">
               <p className="font-cairo text-base">
-                Olá! Meu nome é Felipe Castro, tenho 21 anos e sou formado em
+                Olá! Meu nome é Felipe Castro, tenho 22 anos e sou formado em
                 Análise e Desenvolvimento de Sistemas. Atuo como desenvolvedor
                 full stack com experiência em desenvolvimento front-end para web
                 e mobile, além de expertise em backend. Minhas habilidades
