@@ -13,7 +13,7 @@ const CreateProject = () => {
   const [keyScreen, setKeyScreen] = useState<boolean>(true);
   const [key, setKey] = useState<string>("");
   const handleValidationKey = () => {
-    if (key === "flccastro!235") {
+    if (key === process.env.ME_DASHBOARD) {
       setKeyScreen(false);
     }
     return;
