@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { SendHorizontalIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Loader2Icon, SendHorizontalIcon } from "lucide-react";
 import ProjectForm from "./_components/project-form";
 import ComponentsForm from "./_components/components-form";
 import DesignForm from "./_components/design-form";
@@ -9,14 +9,18 @@ import DesignForm from "./_components/design-form";
 const CreateProject = () => {
   const [formSelected, setFormSelected] = useState("Projects");
 
+  const keyExtractor = process.env.NEXT_PUBLIC_ME_DASHBOARD!;
+
   // Loading page
   const [keyScreen, setKeyScreen] = useState<boolean>(true);
   const [key, setKey] = useState<string>("");
+  const [loading, setLoading] = useState(true);
+
   const handleValidationKey = () => {
-    if (key === process.env.ME_DASHBOARD) {
+    if (key === keyExtractor) {
       setKeyScreen(false);
     }
-    return;
+    setLoading(false);
   };
 
   if (keyScreen) {
